@@ -1,3 +1,5 @@
+package practical2;
+
 public class StackStructure {
 
     /**
