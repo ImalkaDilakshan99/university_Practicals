@@ -1,6 +1,7 @@
 package practical4;
 
 public class SLinkedList {
+    
     Node head;
 
     //Constructor
@@ -109,7 +110,46 @@ public class SLinkedList {
     }
 
     //deleteEnd
+    public Node deleteEnd(){
+        //check if linkedList is empty or not
+        if(isEmpty()){
+            System.out.println("Linked list is Empty");
+        }
+
+        // If the list only has one element
+        if (head.next == null) {
+            Node temp = head;
+            head = null;
+            return temp;
+        }
+
+        Node last = head;
+        while(last.next.next != null){
+            last = last.next;
+        }
+        Node lastNode = last.next;
+        last.next = null;
+
+        return lastNode;
+    }
+
+
     //deleteAfter
+    public void deleteAfter(Node prev_node){
+        // assumed list is not empty
+        if(prev_node == null || prev_node.next == null){
+            System.out.println("The given node is null or does not have a next Node.");
+            return;
+        }
+    
+
+        Node del_node = prev_node.next;
+        prev_node.next = prev_node.next.next;
+        
+        System.out.println(prev_node.data+ " Node after " + del_node.data + " is deleted.");
+
+    }
+
 
     
     
