@@ -10,7 +10,7 @@ public class TestLinkedList {
         list.display();
 
         //search 50 is available
-        Node newnNode = list.searchNode(50);
+        Node newNode = list.searchNode(50);
 
         newNode.displayNode();
 
