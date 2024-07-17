@@ -12,4 +12,9 @@ public class Node {
         this.next = null;
     }
 
+    //display a Node
+    public void displayNode(){
+        System.out.println(data);
+    }
+
 }
