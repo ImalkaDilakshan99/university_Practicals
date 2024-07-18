@@ -13,6 +13,24 @@ public class TestList {
 
         //display list1
         list1.display();
+
+        // Print the head Node
+        System.out.println("Head Node is: ");
+        list1.head.displayNode();
+
+        // Print the next node to head node
+        System.out.println("Next node to head node: ");
+        list1.head.next.displayNode();
+
+        // After insert
+        System.out.println("after inserting node after node 40: ");
+        list1.InsertAfter(40, 100);
+        list1.display();
+
+        // Delete last node
+        System.out.println("Delete last node: ");
+        list1.deletEnd();
+        list1.display();
     }
 }
 

@@ -59,10 +59,78 @@ public class DoubleLinkedList {
         }else{
             Node newNode = new Node(data);
             Node lastNode = head;
-            while(lastNode.next != head){
+            while(lastNode.next != null){
                 lastNode = lastNode.next;
+            }
+            newNode.prev = lastNode;
+            lastNode.next = newNode;
+
+        }
+    }
+
+    // InsertAfter() Method
+    public void InsertAfter(int prevData, int data){
+        if(isEmpty()){
+            System.out.println("Double Linked List is empty. ");
+        }else{
+            Node prevNode = searchNode(prevData);
+            if(prevNode == null){
+                System.out.println("Given data is not available. ");
+            }else{
+                Node newNode = new Node(data);
+                newNode.next = prevNode.next;
+                newNode.prev = prevNode;
+                prevNode.next.prev = newNode;
+                prevNode.next = newNode;
+
             }
         }
     }
+
+    // DeleteFirst() Method
+    public Node deletFirst(){
+        Node currentNode = null;
+        if(isEmpty()){
+            System.out.println("List is empty.");
+        }else{
+            currentNode = head;
+            head = head.next;
+            head.prev = null;
+        }
+        return currentNode;
+    }
+
+    //deleteEnd() Method
+    public Node deletEnd(){
+        Node lastNode = head;
+        while(lastNode != null){
+            lastNode = lastNode.next;
+        }
+        Node newLastNode = lastNode.prev;
+        newLastNode.next = null;
+        return lastNode;
+
+    }
+
+    // deleteAfter() Method
+    public Node deletAfter(int prevData){
+        Node delNode = null;
+        if(isEmpty()){
+            System.out.println("List Is Empty. ");
+        }else{
+            Node prevNode = searNode(prevData);
+            if(prevNode == null){
+                System.out.println("Given Data is Not available. ");      
+            }else{
+                delNode = prevNode.next;
+                prevNode.next = prevNode.next.next;
+                prevNode.next.next = prevNode.next.next.next;
+                prevNode.next.next.prev = prevNode;
+            }
+            
+        }
+        return delNode;
+    }
+
 
 }
